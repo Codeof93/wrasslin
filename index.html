@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notebook Wrestling</title>
+  <style>
+    body {
+      background: #fdfdfd url('https://www.transparenttextures.com/patterns/lined-paper.png');
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .character {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #555;
+      margin: 10px;
+      background-color: #fff;
+      font-size: 16px;
+      line-height: 1.2;
+      white-space: pre-wrap;
+    }
+    .buttons button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📝 Notebook Wrestling 🥊</h1>
+  <div>
+    <div class="character" id="windigo">
+      🤺 Windigo
+      
+      /|\
+      
+      / \
+    </div>
+    <div class="character" id="shrimpy">
+      🧍 Shrimpy McDee
+      
+      \o/
+      
+      / \
+    </div>
+  </div>
+  
+  <div class="buttons">
+    <button onclick="playerMove('Windigo', 'Shrimpy McDee')">Windigo: Paper Slam</button>
+    <button onclick="playerMove('Windigo', 'Shrimpy McDee', 'spitball attack')">Windigo: Spitball Attack</button>
+    <button onclick="playerMove('Shrimpy McDee', 'Windigo')">Shrimpy: Sneaky Elbow</button>
+    <button onclick="playerMove('Shrimpy McDee', 'Windigo', 'lunchbox throw')">Shrimpy: Lunchbox Throw</button>
+  </div>
+
+  <div id="output">Choose your nonsense move.</div>
+
+  <script>
+    function playerMove(attacker, target, move) {
+      const moves = move ? [move] : [
+        'slaps the desk and yells a confusing battle cry',
+        'draws a fake mustache mid-fight',
+        'spins in a circle and falls down',
+        'unleashes a fearsome glue stick jab'
+      ];
+
+      const chosenMove = moves[Math.floor(Math.random() * moves.length)];
+      const result = `${attacker} uses ${chosenMove} on ${target}! ${target} looks mildly confused.`;
+      document.getElementById('output').innerText = result;
+    }
+  </script>
+</body>
+</html>
